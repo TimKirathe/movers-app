@@ -1,0 +1,73 @@
+{{#partial "content"}}
+
+    {{#if editHero}}
+
+        <h1>Edit Hero</h1>
+
+        <form action="/heroes/{{editHero.id}}/update" method="post">
+            <div class="form-group">
+                <label for="name">Name of Hero</label>
+                <input id="name" name="name" type="text" class="form-control" value="{{editHero.name}}">
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input id="age" name="age" type="text" class="form-control" value="{{editHero.age}}">
+            </div>
+
+            <div class="form-group">
+                <label for="special-power">Special Power</label>
+                <input id="special-power" name="special-power" type="text" class="form-control" style="margin-bottom: 40px;" value="{{editHero.specialPower}}">
+            </div>
+
+            <div class="form-group">
+                <label for="weakness">Weakness</label>
+                <input id="weakness" name="weakness" type="text" class="form-control" style="margin-bottom: 40px;" value="{{editHero.weakness}}">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    {{else}}
+
+        <h1>Add a new Hero:</h1>
+
+        <form action="/heroes/new" method="post">
+            <div class="form-group">
+                <label for="name">Name of Hero</label>
+                <input id="name" name="name" type="text" class="form-control" style="margin-bottom: 40px;" placeholder="Enter Hero Name Here...">
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input id="age" name="age" type="text" class="form-control" style="margin-bottom: 40px;" placeholder="Enter Age Here...">
+            </div>
+
+            <div class="form-group">
+                <label for="special-power">Special Power</label>
+                <input id="special-power" name="special-power" type="text" class="form-control" style="margin-bottom: 40px;" placeholder="Enter Special Power...">
+            </div>
+
+            <div class="form-group">
+                <label for="weakness">Weakness</label>
+                <input id="weakness" name="weakness" type="text" class="form-control" style="margin-bottom: 40px;" placeholder="Enter Weakness...">
+            </div>
+
+            <div class="form-group">
+                <label for="selected-squad">Squad</label>
+                <select name="selected-squad" id="selected-squad" class="form-control">
+                    {{#each squads}}
+                        <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    {{/if}}
+
+{{/partial}}
+
+{{> layout.hbs}}
