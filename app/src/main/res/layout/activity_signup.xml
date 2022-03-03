@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
-    tools:context=".SignupActivity">
+    tools:context=".ui.SignupActivity">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="550dp"
@@ -33,6 +33,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
+                    android:drawableLeft="@drawable/person"
                     android:layout_height="wrap_content"
                     android:background="@color/grey"
 
@@ -49,6 +50,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/name">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:drawableLeft="@drawable/mails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/grey"
@@ -66,7 +68,7 @@
                 android:layout_marginTop="19dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:text="LOGIN"
+                android:text="SIGN UP"
                 android:textColor="@color/blue"
                 android:textSize="24dp"
                 android:textStyle="bold" />
@@ -84,58 +86,78 @@
                 android:layout_marginTop="16dp"
                 />
 
+
             <Button
-                android:id="@+id/login"
+                android:id="@+id/signup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/little_blue"
-                android:text="Login"
+                android:text="Sign UP"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.529"
+                app:layout_constraintHorizontal_bias="0.495"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/confirmpassword" />
 
             <TextView
-                android:id="@+id/loginoption"
+                android:id="@+id/signupoption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="24dp"
-                android:text="TextView"
+                android:text="Do you have an Account? "
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.527"
+                app:layout_constraintHorizontal_bias="0.339"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/login" />
+                app:layout_constraintTop_toBottomOf="@+id/signup" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/password"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/email"
                 app:layout_constraintStart_toStartOf="@+id/email"
                 app:layout_constraintTop_toBottomOf="@+id/email">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/grey"
-                    android:hint="Password" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey"
+                android:drawableLeft="@drawable/password"
 
+                android:hint="password" />
+            </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/confirmpassword"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/password"
                 app:layout_constraintStart_toStartOf="@+id/password"
                 app:layout_constraintTop_toBottomOf="@+id/password">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Confirm Password" />
+                    android:drawableLeft="@drawable/password"
+                    android:background="@color/grey"
+
+                    android:hint="Confirm password" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/loginClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:textStyle="bold"
+                android:textColor="@color/login_signup_color"
+                android:layout_margin="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/signupoption"
+                app:layout_constraintStart_toEndOf="@+id/signupoption"
+                app:layout_constraintTop_toTopOf="@+id/signupoption" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -153,4 +175,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/arrow" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

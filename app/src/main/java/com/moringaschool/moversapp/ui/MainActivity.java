@@ -1,8 +1,10 @@
-package com.moringaschool.moversapp;
+package com.moringaschool.moversapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.moringaschool.moversapp.R;
 
 public class MainActivity extends AppCompatActivity {
 

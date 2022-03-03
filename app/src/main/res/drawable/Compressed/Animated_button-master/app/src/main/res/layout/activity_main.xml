@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1D345F"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <com.spark.submitbutton.SubmitButton
         android:layout_width="match_parent"
