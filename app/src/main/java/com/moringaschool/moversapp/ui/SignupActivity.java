@@ -11,16 +11,17 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.moringaschool.moversapp.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener{
-    @BindView(R.id.name) TextInputEditText name;
-    @BindView(R.id.email) TextInputEditText email;
-    @BindView(R.id.password) TextInputEditText password;
-    @BindView(R.id.confirmpassword) TextInputEditText confirmPassword;
+    @BindView(R.id.name) TextInputLayout name;
+    @BindView(R.id.email) TextInputLayout email;
+    @BindView(R.id.password) TextInputLayout password;
+    @BindView(R.id.confirmpassword) TextInputLayout confirmPassword;
     @BindView(R.id.arrow) ImageView arrow;
     @BindView(R.id.signup) Button signup;
     @BindView(R.id.loginClick) TextView loginView;

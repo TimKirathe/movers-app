@@ -5,21 +5,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.moringaschool.moversapp.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    @BindView(R.id.email) TextInputEditText memail;
-    @BindView(R.id.password) TextInputEditText mpassword;
+    @BindView(R.id.email) TextInputLayout memail;
+    @BindView(R.id.password) TextInputLayout mpassword;
     @BindView(R.id.arrow) ImageView marrow;
     @BindView(R.id.login) Button mlogin;
-    @BindView(R.id.createaccountclick) Button mcreate;
+    @BindView(R.id.createaccountclick) TextView mcreate;
 
 
     @Override
