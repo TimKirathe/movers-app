@@ -19,7 +19,6 @@ import butterknife.ButterKnife;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.email) TextInputLayout memail;
     @BindView(R.id.password) TextInputLayout mpassword;
-    @BindView(R.id.arrow) ImageView marrow;
     @BindView(R.id.login) Button mlogin;
     @BindView(R.id.createaccountclick) TextView mcreate;
 
@@ -31,7 +30,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         ButterKnife.bind(this);
         mlogin.setOnClickListener(this);
         mcreate.setOnClickListener(this);
-        marrow.setOnClickListener(this);
     }
 
     @Override
@@ -46,9 +44,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(intent);
             finish();
 
-        }else if (view == marrow){
-            onBackPressed();
+        }
 
     }
-}
 }
