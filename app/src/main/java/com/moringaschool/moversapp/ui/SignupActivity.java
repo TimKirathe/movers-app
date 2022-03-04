@@ -22,7 +22,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     @BindView(R.id.email) TextInputLayout email;
     @BindView(R.id.password) TextInputLayout password;
     @BindView(R.id.confirmpassword) TextInputLayout confirmPassword;
-    @BindView(R.id.arrow) ImageView arrow;
     @BindView(R.id.signup) Button signup;
     @BindView(R.id.loginClick) TextView loginView;
 
@@ -31,7 +30,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         ButterKnife.bind(this);
-        arrow.setOnClickListener(this);
         signup.setOnClickListener(this);
         loginView.setOnClickListener(this);
     }
@@ -47,9 +45,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
-    } else if(view == arrow){
-            onBackPressed();
+    }
 
     }
     }
-}
