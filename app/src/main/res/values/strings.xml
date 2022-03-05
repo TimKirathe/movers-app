@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Movers App</string>
+    <string name="logout_text">Logout</string>
 </resources>
