@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "197732775374",
+    "project_id": "mover-s-app",
+    "storage_bucket": "mover-s-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197732775374:android:e3829e0cf1a4be2c25e79f",
+        "android_client_info": {
+          "package_name": "com.moringaschool.moversapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197732775374-jkhfhqt0jl53vlqg1lgrm886i81l3s0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA09-1ujENoTyAxotSSrglb6600HlyOS7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "197732775374-jkhfhqt0jl53vlqg1lgrm886i81l3s0e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
