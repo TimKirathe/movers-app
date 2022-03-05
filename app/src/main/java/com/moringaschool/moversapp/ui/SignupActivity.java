@@ -29,6 +29,7 @@ import butterknife.ButterKnife;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = SignupActivity.class.getSimpleName();
+
     @BindView(R.id.name) TextInputLayout nameTextInputLayout;
     @BindView(R.id.email) TextInputLayout emailTextInputLayout;
     @BindView(R.id.password) TextInputLayout passwordTextInputLayout;
