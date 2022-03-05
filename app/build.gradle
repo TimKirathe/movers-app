@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
 }
 
+apply plugin: 'com.google.gms.google-services'
+
 android {
     compileSdk 31
 
@@ -35,34 +37,45 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'androidx.annotation:annotation:1.2.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
-    //    Robolectric dependencies
-    testImplementation 'org.robolectric:robolectric:4.4'
-//    Importing Expresso
+    implementation 'androidx.annotation:annotation:1.3.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+
+    //    Robolectric Dependencies
+    testImplementation 'org.robolectric:robolectric:4.6'
+
+//    Importing Espresso
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-//    Importing butterknife
+
+//    Importing ButterKnife
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
-//    Importing retrofit
+
+//    Importing Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
-//    importing recylerview
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
-//    importing parceler
+
+//    Importing RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+//    Importing Parceler
     implementation 'org.parceler:parceler-api:1.1.12'
     annotationProcessor 'org.parceler:parceler:1.1.12'
+
 //   Import the Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:29.1.0')
-//  Importing firebase analytics
+
+//  Importing Firebase Analytics
     implementation 'com.google.firebase:firebase-analytics'
-//    Importing firebase database
+
+//    Importing Firebase Database
     implementation 'com.google.firebase:firebase-database'
-//    Importin material dependencies
-    implementation "com.google.android.material:material:1.2.1"
-//    importing Firebase auth
+
+//    Importing Material Dependencies
+    implementation "com.google.android.material:material:1.5.0"
+
+//    importing Firebase Authentication
     implementation 'com.google.firebase:firebase-auth'
 
 }
