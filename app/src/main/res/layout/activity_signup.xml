@@ -13,11 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background"
+        android:paddingBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/name"
@@ -53,12 +53,14 @@
             app:layout_constraintTop_toBottomOf="@+id/name">
 
             <com.google.android.material.textfield.TextInputEditText
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/grey"
                 android:drawableLeft="@drawable/mails"
                 android:drawablePadding="8dp"
-                android:hint="Email" />
+                android:hint="Email"
+              />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -125,7 +127,8 @@
             app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="@+id/email"
             app:layout_constraintStart_toStartOf="@+id/email"
-            app:layout_constraintTop_toBottomOf="@+id/email">
+            app:layout_constraintTop_toBottomOf="@+id/email"
+           >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -145,7 +148,8 @@
             app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="@+id/password"
             app:layout_constraintStart_toStartOf="@+id/password"
-            app:layout_constraintTop_toBottomOf="@+id/password">
+            app:layout_constraintTop_toBottomOf="@+id/password"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
