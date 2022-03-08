@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
         <activity
+            android:name=".ui.PaymentActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.BungalowSurveyActivity"
             android:exported="false" />
         <activity
