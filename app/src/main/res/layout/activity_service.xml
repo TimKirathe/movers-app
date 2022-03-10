@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ServiceActivity">
+
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/bedsitter"
+      android:layout_width="152dp"
+      app:cardElevation="30dp"
+      app:cardCornerRadius="30dp"
+      android:layout_height="152dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="200dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+      <ImageView
+          android:id="@+id/imagebesitter"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/home"
+          android:layout_marginTop="32dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+          android:id="@+id/textbedsitter"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          android:text="Bedsitter"
+          android:textSize="15dp"
+          android:textStyle="bold"
+          app:layout_constraintEnd_toEndOf="@+id/imagebesitter"
+          app:layout_constraintStart_toStartOf="@+id/imagebesitter"
+          app:layout_constraintTop_toBottomOf="@+id/imagebesitter" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/apartment"
+      android:layout_width="152dp"
+      android:layout_height="152dp"
+      app:cardCornerRadius="30dp"
+      android:layout_marginEnd="24dp"
+      app:cardElevation="30dp"
+      app:layout_constraintBottom_toBottomOf="@+id/bedsitter"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/bedsitter" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+      <ImageView
+          android:id="@+id/imageapartment"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="32dp"
+          android:layout_marginEnd="24dp"
+          android:src="@drawable/home"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+          android:id="@+id/textapartment"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="24dp"
+          android:text="Apartment"
+          android:textStyle="bold"
+          android:textSize="15dp"
+          app:layout_constraintEnd_toEndOf="@+id/imageapartment"
+          app:layout_constraintStart_toStartOf="@+id/imageapartment"
+          app:layout_constraintTop_toBottomOf="@+id/imageapartment" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/non_bungalow"
+      android:layout_width="152dp"
+      app:cardElevation="30dp"
+
+      android:layout_height="152dp"
+      app:cardCornerRadius="30dp"
+      android:layout_marginTop="120dp"
+      app:layout_constraintEnd_toEndOf="@+id/bedsitter"
+      app:layout_constraintStart_toStartOf="@+id/bedsitter"
+      app:layout_constraintTop_toBottomOf="@+id/bedsitter" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+      <ImageView
+          android:id="@+id/imagenon_bungalow"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="32dp"
+          android:layout_marginEnd="24dp"
+          android:src="@drawable/home"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+          android:id="@+id/textnon_bungalow"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="24dp"
+          android:text="Non-Bungalow"
+          android:textSize="15dp"
+          android:textStyle="bold"
+          app:layout_constraintEnd_toEndOf="@+id/imagenon_bungalow"
+          app:layout_constraintStart_toStartOf="@+id/imagenon_bungalow"
+          app:layout_constraintTop_toBottomOf="@+id/imagenon_bungalow" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/bungalow"
+      android:layout_width="152dp"
+      android:layout_height="152dp"
+      app:cardCornerRadius="30dp"
+      android:layout_marginTop="120dp"
+      app:cardElevation="30dp"
+      app:layout_constraintEnd_toEndOf="@+id/apartment"
+      app:layout_constraintStart_toStartOf="@+id/apartment"
+      app:layout_constraintTop_toBottomOf="@+id/apartment" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+      <ImageView
+          android:id="@+id/imagebungalow"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="32dp"
+          android:layout_marginEnd="24dp"
+          android:src="@drawable/home"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+          android:id="@+id/textView6"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="24dp"
+          android:text="Bungalow"
+          android:textSize="15dp"
+          android:textStyle="bold"
+          app:layout_constraintEnd_toEndOf="@+id/imagebungalow"
+          app:layout_constraintStart_toStartOf="@+id/imagebungalow"
+          app:layout_constraintTop_toBottomOf="@+id/imagebungalow" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.cardview.widget.CardView>
+
+  <TextView
+      android:id="@+id/which"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="24dp"
+      android:layout_marginTop="90dp"
+      android:text="Which"
+      android:textSize="36dp"
+      android:textStyle="bold"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/service"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:text="service"
+      android:textSize="36dp"
+      android:textColor="@color/blue"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="@+id/which"
+      app:layout_constraintStart_toEndOf="@+id/which"
+      app:layout_constraintTop_toTopOf="@+id/which" />
+
+  <TextView
+      android:id="@+id/doyou"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="do you"
+      android:textStyle="bold"
+      android:textSize="36dp"
+      app:layout_constraintEnd_toEndOf="@+id/which"
+      app:layout_constraintStart_toStartOf="@+id/which"
+      app:layout_constraintTop_toBottomOf="@+id/which" />
+
+  <TextView
+      android:id="@+id/need"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:text="need ?"
+      android:textSize="36dp"
+      android:textStyle="bold"
+      android:textColor="@color/light_orange"
+      app:layout_constraintBottom_toBottomOf="@+id/doyou"
+      app:layout_constraintStart_toEndOf="@+id/doyou"
+      app:layout_constraintTop_toBottomOf="@+id/which" />
+</androidx.constraintlayout.widget.ConstraintLayout>
