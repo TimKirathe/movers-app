@@ -30,13 +30,11 @@ public class User {
     /**
      * @param password
      * @param name
-     * @param id
      * @param userId
      * @param email
      */
-    public User(Integer id, String userId, String name, String email, String password) {
+    public User(String userId, String name, String email, String password) {
         super();
-        this.id = id;
         this.userId = userId;
         this.name = name;
         this.email = email;

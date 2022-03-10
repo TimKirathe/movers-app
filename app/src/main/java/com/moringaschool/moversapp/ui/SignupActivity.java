@@ -23,9 +23,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.moringaschool.moversapp.R;
+import com.moringaschool.moversapp.clients.MoversClient;
+import com.moringaschool.moversapp.interfaces.MoversApi;
+import com.moringaschool.moversapp.models.PostUserResponse;
+import com.moringaschool.moversapp.models.User;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = SignupActivity.class.getSimpleName();
@@ -37,13 +44,13 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     @BindView(R.id.signup) Button signUpButton;
     @BindView(R.id.loginClick) TextView loginClickTextView;
 
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-
     private String mName;
     private String mEmail;
     private String mPassword;
     private String mConfirmPassword;
+    private String mUserId;
+
+    private MoversApi mMoversApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,35 +60,19 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         signUpButton.setOnClickListener(this);
         loginClickTextView.setOnClickListener(this);
 
-        mAuth = FirebaseAuth.getInstance();
-        createAuthStateListener();
+
+
+        mMoversApi = MoversClient.getClient();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        mAuth.removeAuthStateListener(mAuthListener);
-    }
-
-    private void createAuthStateListener() {
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    Intent intent = new Intent(SignupActivity.this, MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                    finish();
-                }
-            }
-        };
     }
 
     @Override
@@ -95,6 +86,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         if (view == signUpButton){
             showProgressBar();
             createNewUser();
+            saveSignedUpUser();
         }
 
     }
@@ -104,6 +96,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         mEmail = emailTextInputLayout.getEditText().getText().toString().trim();
         mPassword = passwordTextInputLayout.getEditText().getText().toString().trim();
         mConfirmPassword = confirmPasswordTextInputLayout.getEditText().getText().toString().trim();
+        mUserId = "12sdkjfh45kadfjkhkj67";
 
         if (confirmName() == false) {
             return;
@@ -117,37 +110,26 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         if (passwordsMatch() == false) {
             return;
         }
-
-        mAuth.createUserWithEmailAndPassword(mEmail, mPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Log.e(TAG, "Authentication Successful");
-                    updateFirebaseUserProfile(task.getResult().getUser());
-                } else {
-                    Toast.makeText(SignupActivity.this, "Signup Failed!", Toast.LENGTH_LONG).show();
-                    Log.e(TAG, "Authentication Failed: ", task.getException());
-                }
-            }
-        });
-
     }
 
-    private void updateFirebaseUserProfile(FirebaseUser user) {
+    private void saveSignedUpUser() {
+        User user = new User(mUserId, mName, mEmail, mPassword);
 
-        UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
-                                                    .setDisplayName(mName)
-                                                    .build();
+        Call<PostUserResponse> call2 = mMoversApi.signUpUser(user);
 
-        user.updateProfile(request).addOnCompleteListener(this, new OnCompleteListener<Void>() {
+        call2.enqueue(new Callback<PostUserResponse>() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                hideProgressBar();
-                if(task.isSuccessful()) {
-                    Log.e(TAG, user.getDisplayName());
-                } else {
-                    Log.e(TAG, "Error: ", task.getException());
-                }
+            public void onResponse(Call<PostUserResponse> call, Response<PostUserResponse> response) {
+                Log.e(TAG, "User successfully added to the database, userId: " + response.body().getUser().getUserId());
+                Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<PostUserResponse> call, Throwable t) {
+                Toast.makeText(SignupActivity.this, "Saving to database failed", Toast.LENGTH_LONG);
             }
         });
     }

@@ -21,9 +21,17 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.moringaschool.moversapp.R;
+import com.moringaschool.moversapp.clients.MoversClient;
+import com.moringaschool.moversapp.interfaces.MoversApi;
+import com.moringaschool.moversapp.models.LoginUser;
+import com.moringaschool.moversapp.models.LoginUserResponse;
+import com.moringaschool.moversapp.models.User;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = LoginActivity.class.getSimpleName();
@@ -33,11 +41,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.login) Button mLoginButton;
     @BindView(R.id.createaccountclick) TextView mCreateAccountClickTextView;
 
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-
     private String mEmail;
     private String mPassword;
+
+    private MoversApi mMoversApi;
 
 
     @Override
@@ -48,35 +55,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mLoginButton.setOnClickListener(this);
         mCreateAccountClickTextView.setOnClickListener(this);
 
-        mAuth = FirebaseAuth.getInstance();
-        createAuthStateListener();
+        mMoversApi = MoversClient.getClient();
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        mAuth.removeAuthStateListener(mAuthListener);
-    }
-
-    private void createAuthStateListener() {
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                    finish();
-                }
-            }
-        };
     }
 
     @Override
@@ -84,6 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(view == mLoginButton) {
             showProgressBar();
             loginUser();
+            getLoggedInUser();
         }
         if (view == mCreateAccountClickTextView) {
             Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
@@ -92,6 +83,30 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         }
 
+    }
+
+    private void getLoggedInUser() {
+        LoginUser loginUser = new LoginUser(mEmail, mPassword);
+
+        Call<LoginUserResponse> call2 = mMoversApi.loginUser(loginUser);
+
+        call2.enqueue(new Callback<LoginUserResponse>() {
+            @Override
+            public void onResponse(Call<LoginUserResponse> call, Response<LoginUserResponse> response) {
+                Log.e(TAG, "Logged In User successfully returned");
+                User user = response.body().getUser();
+                Log.e(TAG, "User Returned Successfully: " + user.getName());
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<LoginUserResponse> call, Throwable t) {
+
+            }
+        });
     }
 
     private void loginUser() {
@@ -105,18 +120,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(mEmail, mPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                hideProgressBar();
-                if (task.isSuccessful()) {
-                    Log.e(TAG, "Authentication Successful");
-                } else {
-                    Toast.makeText(LoginActivity.this, "Login Failed.", Toast.LENGTH_LONG).show();
-                    Log.e(TAG, "Error: ", task.getException());
-                }
-            }
-        });
     }
 
     private boolean confirmPassword() {
