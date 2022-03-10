@@ -22,9 +22,6 @@
             android:name=".ui.ApartmentSurveyActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SurveyActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.QuotationActivity"
             android:exported="false" />
         <activity
