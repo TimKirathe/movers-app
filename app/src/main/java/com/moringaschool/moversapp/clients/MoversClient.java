@@ -14,7 +14,7 @@ public class MoversClient {
         if (retrofit == null) {
 
             retrofit = new Retrofit.Builder()
-                    .baseUrl(Constants.BASE_URL)
+                    .baseUrl("http://movers-apii.herokuapp.com/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 

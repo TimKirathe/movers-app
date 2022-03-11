@@ -57,12 +57,12 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         ButterKnife.bind(this);
+
+        mMoversApi = MoversClient.getClient();
+
         signUpButton.setOnClickListener(this);
         loginClickTextView.setOnClickListener(this);
 
-
-
-        mMoversApi = MoversClient.getClient();
     }
 
     @Override
@@ -114,22 +114,26 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
     private void saveSignedUpUser() {
         User user = new User(mUserId, mName, mEmail, mPassword);
+        Log.e(TAG, user.getName());
 
-        Call<PostUserResponse> call2 = mMoversApi.signUpUser(user);
+        Call<PostUserResponse> call = mMoversApi.signUpUser(user);
 
-        call2.enqueue(new Callback<PostUserResponse>() {
+        call.enqueue(new Callback<PostUserResponse>() {
             @Override
             public void onResponse(Call<PostUserResponse> call, Response<PostUserResponse> response) {
+                Log.e(TAG, response.raw().toString());
                 Log.e(TAG, "User successfully added to the database, userId: " + response.body().getUser().getUserId());
-                Intent intent = new Intent(SignupActivity.this, MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                finish();
+                Toast.makeText(SignupActivity.this, "Saved to database", Toast.LENGTH_LONG).show();
+//                Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//                finish();
             }
 
             @Override
             public void onFailure(Call<PostUserResponse> call, Throwable t) {
-                Toast.makeText(SignupActivity.this, "Saving to database failed", Toast.LENGTH_LONG);
+                Toast.makeText(SignupActivity.this, "Saving to database failed", Toast.LENGTH_LONG).show();
+                Log.e(TAG, "Error: " + t.getMessage());
             }
         });
     }
