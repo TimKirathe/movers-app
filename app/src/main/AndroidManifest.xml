@@ -10,22 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
         <activity
-            android:name=".ui.PaymentActivity"
+            android:name=".ui.InvoiceActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.BungalowSurveyActivity"
+            android:name=".ui.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Non_BungalowSurveyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.ApartmentSurveyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.QuotationActivity"
+            android:name=".ui.MapActivity"
             android:exported="false" />
         <activity
             android:name=".ui.ServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.QuotationActivity"
             android:exported="false" />
         <activity
             android:name=".ui.SplashActivity"
