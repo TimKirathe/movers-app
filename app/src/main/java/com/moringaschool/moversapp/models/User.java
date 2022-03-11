@@ -3,6 +3,8 @@ package com.moringaschool.moversapp.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class User {
 
     @SerializedName("id")
@@ -79,5 +81,18 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id.equals(user.id) && userId.equals(user.userId) && name.equals(user.name) && email.equals(user.email) && password.equals(user.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userId, name, email, password);
     }
 }
