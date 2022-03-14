@@ -1,10 +1,9 @@
 package com.moringaschool.moversapp.ui;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 

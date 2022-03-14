@@ -1,9 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.QuotationActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/quotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="24dp"
+        android:text="QUOTE"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="390dp"
+        android:layout_height="550dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/quotes"
+        app:layout_constraintStart_toStartOf="@+id/quotes"
+        app:layout_constraintTop_toBottomOf="@+id/quotes">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="52dp"
+                android:text="Moving From"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Ngara"
+                app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintTop_toTopOf="@+id/textView4"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="Moving To"
+                app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:text="Westland"
+                app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                app:layout_constraintStart_toEndOf="@+id/textView6"
+                app:layout_constraintTop_toTopOf="@+id/textView6"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Cash"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="20,000"
+                android:textStyle="bold"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView8"
+                app:layout_constraintStart_toEndOf="@+id/textView8"
+                app:layout_constraintTop_toTopOf="@+id/textView8"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="225dp"
+                android:layout_height="192dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView7"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                app:srcCompat="@drawable/map" />
+
+            <LinearLayout
+                android:layout_width="388dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+                <LinearLayout
+                    android:id="@+id/acceptbtn"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="24dp"
+                    android:background="@drawable/accept"
+                    android:layout_width="150dp"
+                    android:layout_height="45dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textaccept"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Accept"
+                        android:textColor="@color/white"
+                        android:textSize="35sp"
+                        android:textStyle="bold"
+                        android:textAlignment="center"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/declinebtn"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="24dp"
+                    android:background="@drawable/decline"
+                    android:layout_width="150dp"
+                    android:layout_height="45dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textdecline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Accept"
+                        android:textColor="@color/white"
+                        android:textSize="35sp"
+                        android:textStyle="bold"
+                        android:textAlignment="center"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/direction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -32,6 +33,16 @@ Context context;
                 context.startActivity(intent);
             }
         });
+        holder.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                delete();
+            }
+
+            private void delete() {
+
+            }
+        });
     }
 
     @Override
@@ -43,6 +54,7 @@ Context context;
         TextView textView2;
         TextView textView3;
         TextView textView4;
+        Button   button;
         CardView cardView;
         public ViewHolder(View itemView) {
             super(itemView);
@@ -50,6 +62,7 @@ Context context;
             textView2 =itemView.findViewById(R.id.movingto);
             textView3 =itemView.findViewById(R.id.amount);
             textView4 =itemView.findViewById(R.id.date);
+            button =itemView.findViewById(R.id.delete);
             cardView =itemView.findViewById(R.id.cardview);
         }
 

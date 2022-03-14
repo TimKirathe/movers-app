@@ -3,19 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/accept.xml" value="0.209" />
         <entry key="app/src/main/res/drawable/background.xml" value="0.321" />
+        <entry key="app/src/main/res/drawable/circle.xml" value="0.336" />
+        <entry key="app/src/main/res/drawable/decline.xml" value="0.209" />
         <entry key="app/src/main/res/drawable/survey.xml" value="0.321" />
         <entry key="app/src/main/res/layout/activity_apartment_survey.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_bungalow_survey.xml" value="0.31875" />
+        <entry key="app/src/main/res/layout/activity_history.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_invoice.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.259375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_map.xml" value="0.3338541666666667" />
         <entry key="app/src/main/res/layout/activity_non_bungalow_survey.xml" value="0.31875" />
         <entry key="app/src/main/res/layout/activity_payment.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_quotation.xml" value="0.159375" />
-        <entry key="app/src/main/res/layout/activity_service.xml" value="0.19" />
+        <entry key="app/src/main/res/layout/activity_quotation.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_service.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2740740740740741" />
         <entry key="app/src/main/res/layout/activity_survey.xml" value="0.159375" />
+        <entry key="app/src/main/res/layout/history_strip.xml" value="0.5" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.253125" />
       </map>
     </option>

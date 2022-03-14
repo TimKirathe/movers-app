@@ -1,7 +1,9 @@
 package com.moringaschool.moversapp.ui;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.moringaschool.moversapp.R;
 
 public class MapActivity extends AppCompatActivity {
 

@@ -18,6 +18,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/delete"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="24dp"
+            android:text="Delete"
+            android:textColor="@color/delete"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/movingfrom"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/movingfrom"
             android:layout_width="wrap_content"
@@ -52,10 +67,10 @@
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="18dp"
+            android:layout_marginTop="6dp"
             android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/delete"
+            app:layout_constraintStart_toStartOf="@+id/delete"
+            app:layout_constraintTop_toBottomOf="@+id/delete" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
