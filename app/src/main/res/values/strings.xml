@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Movers App</string>
     <string name="logout_text">Logout</string>
+    <string name="title_activity_source">SourceActivity</string>
+    <string name="title_activity_source_map">SourceMapActivity</string>
+    <string name="title_activity_destination_map">DestinationMapActivity</string>
 </resources>

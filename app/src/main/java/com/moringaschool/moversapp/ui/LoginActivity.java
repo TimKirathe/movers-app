@@ -6,20 +6,11 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.moringaschool.moversapp.R;
 import com.moringaschool.moversapp.clients.MoversClient;
 import com.moringaschool.moversapp.interfaces.MoversApi;
@@ -96,7 +87,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Log.e(TAG, "Logged In User successfully returned");
                 User user = response.body().getUser();
                 Log.e(TAG, "User Returned Successfully: " + user.getName());
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, ServiceActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();

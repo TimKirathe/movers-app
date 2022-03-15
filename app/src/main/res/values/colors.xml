@@ -13,4 +13,9 @@
     <color name="login_signup_color">#436BF5</color>
     <color name="light_orange">#FECC9A</color>
     <color name="survery">#F7F7F7</color>
+    <color name="hybrird_black">#000000</color>
+    <color name="delete">#E88989</color>
+    <color name="accept">#78DD8E</color>
+    <color name="decline">#FA9475</color>
+    <color name="skip">#D0E4FF</color>
 </resources>
