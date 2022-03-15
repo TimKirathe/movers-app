@@ -17,4 +17,5 @@
     <color name="delete">#E88989</color>
     <color name="accept">#78DD8E</color>
     <color name="decline">#FA9475</color>
+    <color name="skip">#D0E4FF</color>
 </resources>

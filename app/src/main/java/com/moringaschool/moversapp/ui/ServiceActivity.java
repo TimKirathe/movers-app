@@ -34,19 +34,19 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         if(view == onebedroom){
-            Intent intent =new Intent(ServiceActivity.this, MapActivity.class);
+            Intent intent =new Intent(ServiceActivity.this, SourceMapActivity.class);
             startActivity(intent);
         }else if(view == twobedroom){
-            Intent intent =new Intent(ServiceActivity.this, MapActivity.class);
+            Intent intent =new Intent(ServiceActivity.this, SourceMapActivity.class);
             startActivity(intent);
         }else if(view == threebedroom){
-            Intent intent =new Intent(ServiceActivity.this, MapActivity.class);
+            Intent intent =new Intent(ServiceActivity.this, SourceMapActivity.class);
             startActivity(intent);
         }else if(view == fourbedroom){
-            Intent intent =new Intent(ServiceActivity.this, MapActivity.class);
+            Intent intent =new Intent(ServiceActivity.this, SourceMapActivity.class);
             startActivity(intent);
         }else if(view == fivebedroom){
-            Intent intent =new Intent(ServiceActivity.this, MapActivity.class);
+            Intent intent =new Intent(ServiceActivity.this, SourceMapActivity.class);
             startActivity(intent);
         }
 
