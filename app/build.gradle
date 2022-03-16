@@ -83,4 +83,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth'
 //importing lottie files
     implementation "com.airbnb.android:lottie:5.0.3"
+
+    // Picasso Dependency
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

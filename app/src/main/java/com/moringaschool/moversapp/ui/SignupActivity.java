@@ -124,10 +124,10 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 Log.e(TAG, response.raw().toString());
                 Log.e(TAG, "User successfully added to the database, userId: " + response.body().getUser().getUserId());
                 Toast.makeText(SignupActivity.this, "Saved to database", Toast.LENGTH_LONG).show();
-//                Intent intent = new Intent(SignupActivity.this, MainActivity.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intent);
-//                finish();
+                Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
             }
 
             @Override
