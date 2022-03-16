@@ -10,16 +10,17 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.moversapp.R;
 import com.moringaschool.moversapp.clients.MoversClient;
 import com.moringaschool.moversapp.interfaces.MoversApi;
 import com.moringaschool.moversapp.models.ServiceResponse;
-import com.squareup.picasso.Picasso;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,18 +30,7 @@ import retrofit2.Response;
 
 public class ServiceActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = ServiceActivity.class.getSimpleName();
-
-    @BindView(R.id.onebedroom) CardView oneBedroom;
-    @BindView(R.id.twobedroom) CardView twoBedroom;
-    @BindView(R.id.threebedroom) CardView threeBedroom;
-    @BindView(R.id.fourbedroom) CardView fourBedroom;
-    @BindView(R.id.fivebedroom) CardView fiveBedroom;
-
-    @BindView(R.id.imageonebedroom) ImageView oneBedroomImageView;
-    @BindView(R.id.imagetwobedroom) ImageView twoBedroomImageView;
-    @BindView(R.id.imagethreebedroom) ImageView threeBedroomImageView;
-    @BindView(R.id.imagefourbedroom) ImageView fourBedroomImageView;
-    @BindView(R.id.imagefivebedroom) ImageView fiveBedroomImageView;
+    @BindView(R.id.recyclerView) RecyclerView recyclerView;
 
     private MoversApi moversApi;
 
@@ -50,15 +40,12 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_service);
         ButterKnife.bind(this);
         showProgressBar();
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
+        recyclerView.setLayoutManager(gridLayoutManager);
 
         moversApi = MoversClient.getClient();
 
         getServices();
-        oneBedroom.setOnClickListener(this);
-        twoBedroom.setOnClickListener(this);
-        threeBedroom.setOnClickListener(this);
-        fourBedroom.setOnClickListener(this);
-        fiveBedroom.setOnClickListener(this);
     }
 
     private void showProgressBar() {
@@ -73,11 +60,6 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
                 Log.e(TAG, response.raw().toString());
                 Toast.makeText(ServiceActivity.this, "Success!", Toast.LENGTH_SHORT).show();
                 String imageUrl = response.body().getData().get(0).getPhotoLink();
-                Picasso.get().load(imageUrl).into(oneBedroomImageView);
-                Picasso.get().load(imageUrl).into(twoBedroomImageView);
-                Picasso.get().load(imageUrl).into(threeBedroomImageView);
-                Picasso.get().load(imageUrl).into(fourBedroomImageView);
-                Picasso.get().load(imageUrl).into(fiveBedroomImageView);
 
 
                 hideProgressBar();
@@ -120,23 +102,6 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        if(view == oneBedroom){
-            Intent intent =new Intent(ServiceActivity.this, SourceMapActivity.class);
-            startActivity(intent);
-        }else if(view == twoBedroom){
-            Intent intent =new Intent(ServiceActivity.this, SourceMapActivity.class);
-            startActivity(intent);
-        }else if(view == threeBedroom){
-            Intent intent =new Intent(ServiceActivity.this, SourceMapActivity.class);
-            startActivity(intent);
-        }else if(view == fourBedroom){
-            Intent intent =new Intent(ServiceActivity.this, SourceMapActivity.class);
-            startActivity(intent);
-        }else if(view == fiveBedroom){
-            Intent intent =new Intent(ServiceActivity.this, SourceMapActivity.class);
-            startActivity(intent);
-        }
-
 
     }
 }
