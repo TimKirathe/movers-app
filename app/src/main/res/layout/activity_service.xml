@@ -21,218 +21,26 @@
 
     <TextView
         android:id="@+id/house"
-        android:textStyle="bold"
-        android:text="house?"
-        android:textColor="@color/blue"
-        android:layout_marginTop="15dp"
-        android:textSize="24dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="house?"
+        android:textColor="@color/blue"
+        android:textSize="24dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/title"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/onebedroom"
-        android:layout_width="168dp"
-        android:layout_marginTop="15dp"
-        android:layout_height="188dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="409dp"
+        android:layout_height="618dp"
         android:layout_marginStart="24dp"
-        app:cardElevation="10dp"
-        app:cardCornerRadius="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/house">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageonebedroom"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_marginTop="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/onebedroom" />
-
-            <TextView
-                android:id="@+id/textonebedroom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="One Bedroom"
-                android:textSize="16dp"
-                android:paddingLeft="35dp"
-                android:layout_marginTop="16dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/imageonebedroom"
-                app:layout_constraintStart_toStartOf="@+id/imageonebedroom"
-                app:layout_constraintTop_toBottomOf="@+id/imageonebedroom" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/twobedroom"
-        android:layout_width="168dp"
-        android:layout_height="188dp"
-        android:layout_marginLeft="30dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/onebedroom"
-        app:layout_constraintStart_toEndOf="@+id/onebedroom"
-        app:layout_constraintTop_toTopOf="@+id/onebedroom" >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imagetwobedroom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twobedroom" />
-
-            <TextView
-                android:id="@+id/texttwobedroom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Two Bedroom"
-                android:textSize="16dp"
-                android:paddingLeft="35dp"
-                android:layout_marginTop="16dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/imagetwobedroom"
-                app:layout_constraintStart_toStartOf="@+id/imagetwobedroom"
-                app:layout_constraintTop_toBottomOf="@+id/imagetwobedroom" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/threebedroom"
-        android:layout_width="168dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="10dp"
-        android:layout_height="188dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/onebedroom"
-        app:layout_constraintStart_toStartOf="@+id/onebedroom"
-        app:layout_constraintTop_toBottomOf="@+id/onebedroom">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imagethreebedroom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/threebedroom" />
-
-            <TextView
-                android:id="@+id/textthreebedroom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Three Bedroom"
-                android:textSize="16dp"
-                android:paddingLeft="35dp"
-                android:layout_marginTop="16dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/imagethreebedroom"
-                app:layout_constraintStart_toStartOf="@+id/imagethreebedroom"
-                app:layout_constraintTop_toBottomOf="@+id/imagethreebedroom" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/fivebedroom"
-        android:layout_width="168dp"
-        android:layout_height="188dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="10dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/threebedroom"
-        app:layout_constraintStart_toStartOf="@+id/threebedroom"
-        app:layout_constraintTop_toBottomOf="@+id/threebedroom" >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imagefivebedroom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twobedroom" />
-
-            <TextView
-                android:id="@+id/textfivebedroom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Five Bedroom"
-                android:textSize="16dp"
-                android:paddingLeft="35dp"
-                android:layout_marginTop="16dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/imagefivebedroom"
-                app:layout_constraintStart_toStartOf="@+id/imagefivebedroom"
-                app:layout_constraintTop_toBottomOf="@+id/imagefivebedroom" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/fourbedroom"
-        android:layout_width="168dp"
-        android:layout_height="188dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="10dp"
-        android:layout_marginLeft="24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/threebedroom"
-        app:layout_constraintStart_toEndOf="@+id/threebedroom"
-        app:layout_constraintTop_toTopOf="@+id/threebedroom"
-        app:layout_constraintVertical_bias="0.0">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imagefourbedroom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twobedroom" />
-
-            <TextView
-                android:id="@+id/textfourbedroom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Four Bedroom"
-                android:textSize="16dp"
-                android:paddingLeft="35dp"
-                android:layout_marginTop="16dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/imagefourbedroom"
-                app:layout_constraintStart_toStartOf="@+id/imagefourbedroom"
-                app:layout_constraintTop_toBottomOf="@+id/imagefourbedroom" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toBottomOf="@+id/house" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,9 +25,9 @@ android {
         }
     }
 
-    buildTypes.each {
-        it.buildConfigField 'String', 'BASE_URL', MoversApiUrl
-    }
+//    buildTypes.each {
+//        it.buildConfigField 'String', 'BASE_URL', MoversApiUrl
+//    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
