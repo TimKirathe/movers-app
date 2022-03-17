@@ -4,7 +4,9 @@ package com.moringaschool.moversapp.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Service {
+import java.io.Serializable;
+
+public class Service implements Serializable {
 
     @SerializedName("id")
     @Expose

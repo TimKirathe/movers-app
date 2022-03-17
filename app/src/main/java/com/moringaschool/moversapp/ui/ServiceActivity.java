@@ -10,17 +10,22 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.moringaschool.moversapp.Adapters.ServiceAdapter;
 import com.moringaschool.moversapp.R;
 import com.moringaschool.moversapp.clients.MoversClient;
 import com.moringaschool.moversapp.interfaces.MoversApi;
+import com.moringaschool.moversapp.models.Service;
 import com.moringaschool.moversapp.models.ServiceResponse;
 
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,11 +33,18 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ServiceActivity extends AppCompatActivity implements View.OnClickListener {
+public class ServiceActivity extends AppCompatActivity {
+
     private static final String TAG = ServiceActivity.class.getSimpleName();
-    @BindView(R.id.recyclerView) RecyclerView recyclerView;
+
+    @BindView(R.id.recyclerView1) RecyclerView recyclerView;
+    @BindView(R.id.viewHistoryImageView)
+    ImageView mImageView;
 
     private MoversApi moversApi;
+    private ArrayList<Service> services;
+
+    ServiceAdapter serviceAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,37 +52,53 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_service);
         ButterKnife.bind(this);
         showProgressBar();
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
-        recyclerView.setLayoutManager(gridLayoutManager);
 
         moversApi = MoversClient.getClient();
 
         getServices();
+
+        mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ServiceActivity.this, HistoryActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    private void showProgressBar() {
+    private void setAdapter() {
+        Toast.makeText(this, "Adapter Setting", Toast.LENGTH_SHORT).show();
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(ServiceActivity.this,2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        serviceAdapter = new ServiceAdapter(ServiceActivity.this, services);
+        recyclerView.setAdapter(serviceAdapter);
     }
 
     private void getServices() {
+
         Call<ServiceResponse> call = moversApi.getServices();
 
         call.enqueue(new Callback<ServiceResponse>() {
             @Override
             public void onResponse(Call<ServiceResponse> call, Response<ServiceResponse> response) {
-                Log.e(TAG, response.raw().toString());
-                Toast.makeText(ServiceActivity.this, "Success!", Toast.LENGTH_SHORT).show();
-                String imageUrl = response.body().getData().get(0).getPhotoLink();
-
-
+                services = (ArrayList<Service>) response.body().getData();
+                Toast.makeText(ServiceActivity.this, "" + services.size(), Toast.LENGTH_SHORT).show();
                 hideProgressBar();
+                setAdapter();
             }
 
             @Override
             public void onFailure(Call<ServiceResponse> call, Throwable t) {
+                hideProgressBar();
                 Toast.makeText(ServiceActivity.this, "There has been an error.", Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "Error: " + t.getMessage());
             }
         });
+
+    }
+
+    private void showProgressBar() {
+
     }
 
     private void hideProgressBar() {
@@ -98,10 +126,5 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
-    }
-
-    @Override
-    public void onClick(View view) {
-
     }
 }

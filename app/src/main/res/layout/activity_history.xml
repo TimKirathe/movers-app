@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/set" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/historyNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/profilepic" />
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/historyEmailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -44,12 +44,12 @@
         android:textColor="@color/blue"
         android:textSize="24dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/name"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintEnd_toEndOf="@+id/historyNameTextView"
+        app:layout_constraintStart_toStartOf="@+id/historyNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/historyNameTextView" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/bookingsRecyclerView"
         android:layout_width="409dp"
         android:layout_height="480dp"
         android:layout_marginStart="24dp"
@@ -57,7 +57,7 @@
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/historyEmailTextView" />
 
     <ImageView
         android:id="@+id/direction"

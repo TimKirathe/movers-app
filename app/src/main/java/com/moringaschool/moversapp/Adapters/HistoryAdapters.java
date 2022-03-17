@@ -13,59 +13,46 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.moversapp.R;
+import com.moringaschool.moversapp.models.Booking;
 import com.moringaschool.moversapp.ui.InvoiceActivity;
+
+import java.util.List;
 
 public class HistoryAdapters extends RecyclerView.Adapter<HistoryAdapters.ViewHolder> {
 Context context;
+List<Booking> bookingList;
+
+public HistoryAdapters(Context context, List<Booking> bookingList) {
+    this.context = context;
+    this.bookingList = bookingList;
+}
     @Override
     public HistoryAdapters.ViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
         LayoutInflater inflate =LayoutInflater.from(context);
-        View view = inflate.inflate(R.layout.history_strip,parent,false);
+        View view = inflate.inflate(R.layout.history_strip, parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(HistoryAdapters.ViewHolder holder, int position) {
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, InvoiceActivity.class);
-                context.startActivity(intent);
-            }
-        });
-        holder.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                delete();
-            }
-
-            private void delete() {
-
-            }
-        });
+        holder.textView1.setText(bookingList.get(position).getDate());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+    return bookingList.size();
     }
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView1;
-        TextView textView2;
-        TextView textView3;
-        TextView textView4;
         Button   button;
         CardView cardView;
         public ViewHolder(View itemView) {
             super(itemView);
-            textView1 =itemView.findViewById(R.id.movingfrom);
-            textView2 =itemView.findViewById(R.id.movingto);
-            textView3 =itemView.findViewById(R.id.amount);
-            textView4 =itemView.findViewById(R.id.date);
+            textView1 =itemView.findViewById(R.id.movingDateTextView);
             button =itemView.findViewById(R.id.delete);
             cardView =itemView.findViewById(R.id.cardview);
         }
-
-
     }
 }

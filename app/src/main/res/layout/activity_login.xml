@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/email"
+            android:id="@+id/historyEmailTextView"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -48,9 +48,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:endIconMode="password_toggle"
-            app:layout_constraintEnd_toEndOf="@+id/email"
-            app:layout_constraintStart_toStartOf="@+id/email"
-            app:layout_constraintTop_toBottomOf="@+id/email">
+            app:layout_constraintEnd_toEndOf="@+id/historyEmailTextView"
+            app:layout_constraintStart_toStartOf="@+id/historyEmailTextView"
+            app:layout_constraintTop_toBottomOf="@+id/historyEmailTextView">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"

@@ -23,7 +23,7 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:text="Delete"
             android:textColor="@color/delete"
@@ -37,40 +37,23 @@
             android:id="@+id/movingfrom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:text="TextView"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
+            android:text="Move Scheduled On:"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/amount"
+            android:id="@+id/movingDateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="TextView"
-            app:layout_constraintEnd_toEndOf="@+id/movingto"
-            app:layout_constraintStart_toStartOf="@+id/movingto"
-            app:layout_constraintTop_toBottomOf="@+id/movingto" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.144"
+            app:layout_constraintStart_toEndOf="@+id/movingfrom"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.493" />
 
-        <TextView
-            android:id="@+id/movingto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="@+id/movingfrom"
-            app:layout_constraintStart_toStartOf="@+id/movingfrom"
-            app:layout_constraintTop_toBottomOf="@+id/movingfrom" />
-
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="@+id/delete"
-            app:layout_constraintStart_toStartOf="@+id/delete"
-            app:layout_constraintTop_toBottomOf="@+id/delete" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

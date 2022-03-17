@@ -25,9 +25,9 @@ android {
         }
     }
 
-//    buildTypes.each {
-//        it.buildConfigField 'String', 'BASE_URL', MoversApiUrl
-//    }
+    buildTypes.each {
+        it.buildConfigField 'String', 'BASE_URL', MoversApiUrl
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -43,9 +43,9 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
 //    implementation 'com.google.android.gms:play-services-ads:20.6.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
@@ -86,4 +86,10 @@ dependencies {
 
     // Picasso Dependency
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // Dexter Dependency
+    implementation 'com.karumi:dexter:6.0.2'
+
+    // Places (Geocoder) Dependency
+    implementation 'com.google.android.libraries.places:places:2.5.0'
 }

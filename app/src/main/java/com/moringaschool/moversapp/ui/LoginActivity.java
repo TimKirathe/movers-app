@@ -1,7 +1,9 @@
 package com.moringaschool.moversapp.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.moringaschool.moversapp.Constants;
 import com.moringaschool.moversapp.R;
 import com.moringaschool.moversapp.clients.MoversClient;
 import com.moringaschool.moversapp.interfaces.MoversApi;
@@ -28,7 +31,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = LoginActivity.class.getSimpleName();
 
-    @BindView(R.id.email) TextInputLayout emailTextInputLayout;
+    @BindView(R.id.historyEmailTextView) TextInputLayout emailTextInputLayout;
     @BindView(R.id.password) TextInputLayout passwordTextInputLayout;
     @BindView(R.id.login) Button mLoginButton;
     @BindView(R.id.createaccountclick) TextView mCreateAccountClickTextView;
@@ -37,6 +40,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private String mPassword;
 
     private MoversApi mMoversApi;
+
+    private SharedPreferences mPreferences;
+    private SharedPreferences.Editor mEditor;
 
 
     @Override
@@ -48,6 +54,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mCreateAccountClickTextView.setOnClickListener(this);
 
         mMoversApi = MoversClient.getClient();
+
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+        mEditor = mPreferences.edit();
 
     }
 
@@ -70,6 +79,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         if (view == mCreateAccountClickTextView) {
             Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();
 
@@ -87,7 +97,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onResponse(Call<LoginUserResponse> call, Response<LoginUserResponse> response) {
                 Log.e(TAG, "Logged In User successfully returned");
                 User user = response.body().getUser();
+                saveEmailToSharedPreferences(user.getEmail());
                 Log.e(TAG, "User Returned Successfully: " + user.getName());
+                hideProgressBar();
                 Intent intent = new Intent(LoginActivity.this, ServiceActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
@@ -97,8 +109,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onFailure(Call<LoginUserResponse> call, Throwable t) {
                 Toast.makeText(LoginActivity.this, "Invalid Email or Password", Toast.LENGTH_LONG).show();
+                Log.e(TAG, "Error: " + t.getMessage());
+                hideProgressBar();
             }
         });
+    }
+
+    private void saveEmailToSharedPreferences(String email) {
+        mEditor.putString(Constants.SHARED_PREFERENCES_EMAIL, email);
+        mEditor.apply();
     }
 
     private void loginUser() {

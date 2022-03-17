@@ -7,21 +7,12 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.moringaschool.moversapp.R;
 import com.moringaschool.moversapp.clients.MoversClient;
 import com.moringaschool.moversapp.interfaces.MoversApi;
@@ -37,8 +28,8 @@ import retrofit2.Response;
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = SignupActivity.class.getSimpleName();
 
-    @BindView(R.id.name) TextInputLayout nameTextInputLayout;
-    @BindView(R.id.email) TextInputLayout emailTextInputLayout;
+    @BindView(R.id.historyNameTextView) TextInputLayout nameTextInputLayout;
+    @BindView(R.id.historyEmailTextView) TextInputLayout emailTextInputLayout;
     @BindView(R.id.password) TextInputLayout passwordTextInputLayout;
     @BindView(R.id.confirmpassword) TextInputLayout confirmPasswordTextInputLayout;
     @BindView(R.id.signup) Button signUpButton;
@@ -124,7 +115,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 Log.e(TAG, response.raw().toString());
                 Log.e(TAG, "User successfully added to the database, userId: " + response.body().getUser().getUserId());
                 Toast.makeText(SignupActivity.this, "Saved to database", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                hideProgressBar();
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
@@ -132,6 +124,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onFailure(Call<PostUserResponse> call, Throwable t) {
+                hideProgressBar();
                 Toast.makeText(SignupActivity.this, "Saving to database failed", Toast.LENGTH_LONG).show();
                 Log.e(TAG, "Error: " + t.getMessage());
             }
